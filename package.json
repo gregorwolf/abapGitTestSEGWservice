@@ -1,0 +1,15 @@
+{
+  "name": "test-segw-service",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Test SEGW Service",
+  "scripts": {
+    "lint_result": "abaplint abaplint.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregorwolf/abapGitTestSEGWservice.git "
+  },
+  "author": "gregor.wolf@gmail.com",
+  "license": "ISC"
+}
