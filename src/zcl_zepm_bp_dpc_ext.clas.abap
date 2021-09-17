@@ -24,13 +24,13 @@ CLASS zcl_zepm_bp_dpc_ext IMPLEMENTATION.
           lt_errors TYPE STANDARD TABLE OF bapiret2.
 
     DATA(lt_keys) = io_tech_request_context->get_keys( ).
-    READ TABLE lt_keys ASSIGNING FIELD-SYMBOL(<fs_key>) INDEX 1.
+    READ TABLE lt_keys ASSIGNING FIELD-SYMBOL(<ls_key>) INDEX 1.
 
 
-    IF <fs_key> IS ASSIGNED.
+    IF <ls_key> IS ASSIGNED.
       CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
         EXPORTING
-          input  = <fs_key>-value
+          input  = <ls_key>-value
         IMPORTING
           output = lv_bp_id.
 
@@ -43,19 +43,15 @@ CLASS zcl_zepm_bp_dpc_ext IMPLEMENTATION.
           return     = lt_return.
 
       " Collect Errors
-      LOOP AT lt_return ASSIGNING FIELD-SYMBOL(<fs_return>)
-        WHERE type = 'E'.
-        APPEND <fs_return> TO lt_errors.
+      LOOP AT lt_return ASSIGNING FIELD-SYMBOL(<ls_return>) WHERE type = 'E'.
+        APPEND <ls_return> TO lt_errors.
       ENDLOOP.
 
       IF lt_errors IS NOT INITIAL.
         DATA(lr_msg_cont) =
             /iwbep/cl_mgw_msg_container=>get_mgw_msg_container( ).
 
-        lr_msg_cont->add_messages_from_bapi(
-          EXPORTING
-            it_bapi_messages          = lt_errors
-        ).
+        lr_msg_cont->add_messages_from_bapi( it_bapi_messages = lt_errors ).
         RAISE EXCEPTION TYPE /iwbep/cx_mgw_busi_exception
           EXPORTING
             message_container = lr_msg_cont.
