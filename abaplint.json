@@ -28,13 +28,11 @@
     },
     "abapdoc": {
       "exclude": [],
-      "severity": "Info",
+      "severity": "Error",
       "checkLocal": false
     },
     "allowed_object_naming": {
-      "exclude": [
-        "A6945A44DD6631F95C64CA42BB7651"
-      ],
+      "exclude": [],
       "severity": "Error"
     },
     "allowed_object_types": {
@@ -119,7 +117,7 @@
     },
     "check_syntax": {
       "exclude": [],
-      "severity": "Warning"
+      "severity": "Error"
     },
     "check_text_elements": {
       "exclude": [],
@@ -131,7 +129,7 @@
     },
     "class_attribute_names": {
       "exclude": [],
-      "severity": "Warning",
+      "severity": "Error",
       "patternKind": "required",
       "ignoreNames": [],
       "ignorePatterns": [],
@@ -155,6 +153,10 @@
       "severity": "Error",
       "allowIncludeInFugr": true
     },
+    "constant_classes": {
+      "exclude": [],
+      "severity": "Error"
+    },
     "constructor_visibility_public": {
       "exclude": [],
       "severity": "Error"
@@ -163,6 +165,11 @@
       "exclude": [],
       "severity": "Error",
       "spaces": 1
+    },
+    "cyclic_oo": {
+      "exclude": [],
+      "severity": "Error",
+      "skip": []
     },
     "cyclomatic_complexity": {
       "exclude": [],
@@ -186,7 +193,7 @@
     },
     "db_operation_in_loop": {
       "exclude": [],
-      "severity": "Info"
+      "severity": "Error"
     },
     "definitions_top": {
       "exclude": [],
@@ -232,8 +239,8 @@
     "exit_or_check": {
       "exclude": [],
       "severity": "Error",
-      "allowExit": true,
-      "allowCheck": true
+      "allowExit": false,
+      "allowCheck": false
     },
     "exporting": {
       "exclude": [],
@@ -388,6 +395,7 @@
     "in_statement_indentation": {
       "exclude": [],
       "severity": "Error",
+      "blockStatements": 2,
       "ignoreExceptions": true
     },
     "indentation": {
@@ -395,7 +403,7 @@
       "severity": "Error",
       "ignoreExceptions": true,
       "alignTryCatch": false,
-      "selectionScreenBlockIndentation": true,
+      "selectionScreenBlockIndentation": false,
       "globalClassSkipFirst": false,
       "ignoreGlobalClassDefinition": false,
       "ignoreGlobalInterface": false
@@ -428,7 +436,8 @@
     },
     "line_break_multiple_parameters": {
       "exclude": [],
-      "severity": "Error"
+      "severity": "Error",
+      "count": 1
     },
     "line_break_style": {
       "exclude": [],
@@ -460,19 +469,19 @@
     },
     "local_variable_names": {
       "exclude": [],
-      "severity": "Info",
+      "severity": "Error",
       "patternKind": "required",
       "ignoreNames": [],
       "ignorePatterns": [],
       "expectedData": "^L._.+$",
       "expectedConstant": "^LC_.+$",
-      "expectedFS": "^<fs._.+>$"
+      "expectedFS": "^<l._.+>$"
     },
     "main_file_contents": {
       "exclude": [],
       "severity": "Error"
     },
-    "many_parenthesis": {
+    "many_parentheses": {
       "exclude": [],
       "severity": "Error"
     },
@@ -497,7 +506,8 @@
       "severity": "Error",
       "statements": 100,
       "errorWhenEmpty": true,
-      "ignoreTestClasses": false
+      "ignoreTestClasses": false,
+      "checkForms": true
     },
     "method_overwrites_builtin": {
       "exclude": [],
@@ -505,7 +515,7 @@
     },
     "method_parameter_names": {
       "exclude": [],
-      "severity": "Info",
+      "severity": "Error",
       "patternKind": "required",
       "ignoreNames": [],
       "ignorePatterns": [],
@@ -517,11 +527,11 @@
     },
     "mix_returning": {
       "exclude": [],
-      "severity": "Info"
+      "severity": "Error"
     },
     "modify_only_own_db_tables": {
       "exclude": [],
-      "severity": "Info",
+      "severity": "Error",
       "reportDynamic": true,
       "ownTables": "^[yz]"
     },
@@ -560,8 +570,8 @@
       "patternKind": "required",
       "ignoreNames": [],
       "ignorePatterns": [],
-      "clas": "^Z",
-      "intf": "^ZIF\\_",
+      "clas": "^ZC(L|X)",
+      "intf": "^ZIF",
       "prog": "^Z",
       "fugr": "^Z",
       "tabl": "^Z",
@@ -602,7 +612,10 @@
       "pack": true,
       "selectWithoutInto": true,
       "freeMemory": true,
-      "exitFromSQL": true
+      "exitFromSQL": true,
+      "sortByFS": true,
+      "callTransformation": true,
+      "regex": true
     },
     "omit_parameter_name": {
       "exclude": [],
@@ -621,6 +634,10 @@
       "severity": "Error"
     },
     "parser_missing_space": {
+      "exclude": [],
+      "severity": "Error"
+    },
+    "pragma_placement": {
       "exclude": [],
       "severity": "Error"
     },
@@ -682,11 +699,11 @@
     },
     "select_add_order_by": {
       "exclude": [],
-      "severity": "Info"
+      "severity": "Error"
     },
     "select_performance": {
       "exclude": [],
-      "severity": "Info",
+      "severity": "Error",
       "endSelect": true,
       "selectStar": true,
       "starOkayIfFewColumns": 10
@@ -727,7 +744,7 @@
     },
     "sql_escape_host_variables": {
       "exclude": [],
-      "severity": "Info"
+      "severity": "Error"
     },
     "start_at_tab": {
       "exclude": [],
@@ -771,6 +788,10 @@
       "severity": "Error"
     },
     "unsecure_fae": {
+      "exclude": [],
+      "severity": "Error"
+    },
+    "unused_ddic": {
       "exclude": [],
       "severity": "Error"
     },
