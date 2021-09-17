@@ -117,7 +117,7 @@
     },
     "check_syntax": {
       "exclude": [],
-      "severity": "Error"
+      "severity": "Info"
     },
     "check_text_elements": {
       "exclude": [],
