@@ -34,22 +34,19 @@ CLASS zcl_zepm_bp_dpc_ext IMPLEMENTATION.
         io_tech_request_context = io_tech_request_context
       IMPORTING
         er_stream               = er_stream
-        es_response_context     = es_response_context
-     ).
+        es_response_context     = es_response_context ).
   ENDMETHOD.
 
 
   METHOD /iwbep/if_mgw_appl_srv_runtime~update_stream.
     super->/iwbep/if_mgw_appl_srv_runtime~update_stream(
-      EXPORTING
         iv_entity_name          = iv_entity_name
         iv_entity_set_name      = iv_entity_set_name
         iv_source_name          = iv_source_name
         is_media_resource       = is_media_resource
         it_key_tab              = it_key_tab
         it_navigation_path      = it_navigation_path
-        io_tech_request_context = io_tech_request_context
-    ).
+        io_tech_request_context = io_tech_request_context ).
   ENDMETHOD.
 
 
