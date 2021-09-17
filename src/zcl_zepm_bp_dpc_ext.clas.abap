@@ -1,21 +1,21 @@
-class ZCL_ZEPM_BP_DPC_EXT definition
-  public
-  inheriting from ZCL_ZEPM_BP_DPC
-  create public .
+CLASS zcl_zepm_bp_dpc_ext DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_zepm_bp_dpc
+  CREATE PUBLIC .
 
-public section.
-protected section.
+  PUBLIC SECTION.
+  PROTECTED SECTION.
 
-  methods EPMBUSINESSPARTN_GET_ENTITYSET
-    redefinition .
-  methods EPMBUSINESSPARTN_GET_ENTITY
-    redefinition .
-private section.
+    METHODS epmbusinesspartn_get_entityset
+        REDEFINITION .
+    METHODS epmbusinesspartn_get_entity
+        REDEFINITION .
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_ZEPM_BP_DPC_EXT IMPLEMENTATION.
+CLASS zcl_zepm_bp_dpc_ext IMPLEMENTATION.
 
 
   METHOD epmbusinesspartn_get_entity.

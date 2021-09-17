@@ -1,14 +1,14 @@
-class ZCL_ZEPM_BP_MPC_EXT definition
-  public
-  inheriting from ZCL_ZEPM_BP_MPC
-  create public .
+CLASS zcl_zepm_bp_mpc_ext DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_zepm_bp_mpc
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_ZEPM_BP_MPC_EXT IMPLEMENTATION.
+CLASS zcl_zepm_bp_mpc_ext IMPLEMENTATION.
 ENDCLASS.
