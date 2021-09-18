@@ -5,6 +5,7 @@ CLASS zcl_zepm_bp_dpc_ext DEFINITION
 
   PUBLIC SECTION.
 
+    METHODS test.
     METHODS /iwbep/if_mgw_appl_srv_runtime~get_stream
         REDEFINITION .
     METHODS /iwbep/if_mgw_appl_srv_runtime~update_stream
@@ -18,10 +19,20 @@ CLASS zcl_zepm_bp_dpc_ext DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-
-
 CLASS zcl_zepm_bp_dpc_ext IMPLEMENTATION.
 
+  METHOD test.
+    TRY.
+        DATA(lr_reader) = NEW zcl_excel_reader_2007( ).
+        DATA(lr_excel) = reader->load( i_excel2007 = i_xlsx ).
+        DATA(lr_worksheet) = excel->get_worksheet_by_name( ip_sheet_name = c_metadata_sheetname ).
+        IF lr_worksheet IS INITIAL.
+          RAISE EXCEPTION NEW zcx_excel( i_message = 'Worksheet not found.').
+        ENDIF.
+      CATCH zcx_excel INTO DATA(lr_ex).
+        RAISE EXCEPTION NEW zexcel_du_ex( i_message = lr_ex->get_text( ) ).
+    ENDTRY.
+  ENDMETHOD.
 
   METHOD /iwbep/if_mgw_appl_srv_runtime~get_stream.
     super->/iwbep/if_mgw_appl_srv_runtime~get_stream(
@@ -57,7 +68,6 @@ CLASS zcl_zepm_bp_dpc_ext IMPLEMENTATION.
 
     DATA(lt_keys) = io_tech_request_context->get_keys( ).
     READ TABLE lt_keys ASSIGNING FIELD-SYMBOL(<ls_key>) INDEX 1.
-
 
     IF <ls_key> IS ASSIGNED.
       CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
