@@ -227,7 +227,7 @@
     },
     "empty_structure": {
       "exclude": [],
-      "severity": "Error",
+      "severity": "Warning",
       "loop": true,
       "if": true,
       "while": true,

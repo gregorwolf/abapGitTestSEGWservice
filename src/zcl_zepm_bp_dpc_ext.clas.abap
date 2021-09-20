@@ -87,6 +87,9 @@ CLASS zcl_zepm_bp_dpc_ext IMPLEMENTATION.
 
     ENDIF.
 
+    IF sy-subrc <> 0.
+    ENDIF.
+
   ENDMETHOD.
 
 
